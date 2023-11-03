@@ -1,15 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Ariza to'ldirish</title>
-</head>
-<body>
-<div class="formbold-main-wrapper">
+  <head>
+  	<title>Ariza qoldirish</title>
+	  {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Ariza qoldirish</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-10 col-md-12">
+					<div class="wrapper">
+						<div class="row no-gutters">
+							<div class="col-md-7 d-flex align-items-stretch">
+<!--								<div class="contact-wrap w-100 p-md-5 p-4">-->
+<!--									<h3 class="mb-4">Ma'lumotlarni to'ldirish</h3>-->
+<!--									<div id="form-message-warning" class="mb-4"></div> -->
+<!--				      		<div id="form-message-success" class="mb-4">-->
+<!--				            Your message was sent, thank you!-->
+<!--				      		</div>-->
+									<div class="formbold-main-wrapper">
   <!-- Author: FormBold Team -->
   <!-- Learn More: https://formbold.com -->
   <div class="formbold-form-wrapper">
-         <img src="data:image/png;base64,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">
+<!--         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAABBVBMVEX///8WQf////0WQv7+/v8AAAAANP8AABS/x/4XQ/4AI/8MFzYfOv8AACCJlvwAABzo7v4MGjcAACYAACnk6P8AACIAABeQlJ/y9PUqR/5sgP8AAA8AABYAAB0MFzf///oAACsADDBWbf8ALv+1t74+QFFDSFkAEi/Mz9YvNUHg4+Z3fotYcv4pNU4AAAuYm6La3N8IEjbw8/5DV/9gZXWstv2Rnv3N2PsAAPtRZv9NYP6zwP3s7O8AHf6DhIl3eHsfIzlqbXTHyNJPVF4TGi0pKT+Ji46mp7RNUWE1OEfU1tiRl6U1Tv9oboUFEiuZmp5eX3KxsrZGTWMwND69wME9P1bZ3eeg2VROAAAI9ElEQVR4nO2aDXfSyhaGp2HSiNOYJhiIUiZEQ6GJFuJBPV45WEo/udpTPNX//1Puuyet0hbvOnedRXX17kdrQ5IZZt7s2R8ThWAYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmEYhmGY+4e0hLX8ioXzlvzR1XuEJS35+tFS3jyILVyOocM9JxZvf19fyvM/XryCCP8XlvDgebWyBJx8/k7EcSzvuwYw9QcPl0lQqa5Vn6y/ewU7uPdrQcYPHlbXllCpVivV9X9ZUOlnj3HFICpc04Aef2XN2AEkWKusv4ssc9s9NoabGkCBKj4af0C/quvvLOteK7BEg8padW2DWF839vBk/RmcorzPjvGmBlVYQeVFyUecx9J4/kjc7/h42x9UH762St4/N85h40lscsYr5OXPVQe3kXLh1pvXFprI683lzWPrbpRf0IAsgFR4+N5khpISB+MgNzZpMIiRcTlKfBplEcIqfYiybBSZMUvKKtFUjkYjWWbapiN8heHqC+NvsxxlWWTaWSIaZSPqw3yQJCKdicwJuWItFu2gYpxB9Y9SA5M8wSMYDWJzq8jH4/GHmYj6296xmcX++GTP3xn2M4oc5m/Un3ROtyeNfdPgiBqkZBhW1MfxOMXBBzo5EFmjc7A3bWCeaDTdOdiZzC1jQyTDrDE93DucHs3o04o98jU7wEPHD+yArkhxXQMUFsKutdv2RbTXLNxjNB2dbIWJ76vErTekyapluuu1k6Jot5yXF4iqp0G7vdswckQ4rtkNaGC30cts325prRPvcGahUaK1SprTyKIHL0a54yZnvp+4ziRa+Yq4ZgdVkoHsYKkGuNfxtbJ7H0Kt6rCDwWGofKV0oX21OzaPMPUKrXzfx7m2nQrRSZQf9GlhWNF211ceaVDHHfV/73Wprda17WNqhGNfe2MzpNEUt+AanWtty1UnaQsaVNZ++0g8eXx57boGNBAHDz385GIOzrHI/DZmUXPqHmajm0ckgl3g4XmBE56p2glWfidBgz/Nkr/SQER13K6CbhcmhA5U4inV7dKMle/1qJDthDgfeI6H1so9WXVcvtKAfMGDzc3Nx/gTG7cnF/0BbTJYpAEG2sXI2/ax+ARz0K3hbNbfa+PIhk9IbYz9pDfo5ZhBD6YDO9Bhn2yINFCqThrAmvDMw+7hWcvYkV/U1WEYKmMeuLdvQyN3+2J2cVjD93kXK07RFjT4+Jg8OMpE65UhemMKSqNB6d1LDVTRCidHs8z2tQ97J6d+ikfs5kI0HOW7qUmt50fkQKCBcvvmm0gD36wF6kW3YDfi2NHUYxMOVA6DwtdnJ0JmO4VSYW56mWC1JV9W7BQXNMAaoE0lGb/++JvBnL2ugaJ16uUZBpV7fhGcm02YOA0L3d0eicYWlkIno15ERA1+qEFtYtz/sAb3gRhDEfU08XX3pRDpFiyjE8XUyagOkezRSiW4roFRQFpP1ytl5bB2yw5grjr8QIFfTmHmbu+yG5pf2BOpjSEnzvl8YHaoxA81IH9Cq3zuwSf4A8oBoIfRwJrUcN+flx3nEKZ5vNrFcF0DKSBBXGpgosQtO/D9YiejaJX9Vfiq+3l4fk5/97Tv07p1KVSeJa29aU/SvH6ogd0zRXkaosO/MlqDInfRIezgsKv95PNwiI6Hwy9dX9MquzsNhAlwT9dNzWhixU1/4PuwYmo324MGflALg7BWq8HdKXeOnCmAS4ceKrAnIxMXsLT75GPJJ+pFDSRlg6mrFTQwnj93ldEgIDeJjmtBLQgoMgSTO9XAZLiwg8q3+uGmHWivfKyDPX2mVbsdQAEMNwhq9hwmOzgJ4MY0QmRwemkHZVyQoxsakN4ibfkKhmU2t/NWqUEC36i66NL0ir6d4V1rIP+7BqqZmobZaQGXPfyQE+bfIYIhHNn+uLDrmIbe6pf+IGjQdK2os1wD/6YGp2icfB7n33qeHP+iGohpTfvhfLEnWdZJlsjGL+HKkmlkcqSkQ03jLFDqtgbubQ2OkCmEk8WOV1y5/30N5KUGuxdlyyMPblzRSoY/k3N4UxxfpOatjRgh90s6pQbK/kr3j8NlGixZCxcUOw9MsYRsLY1WXjT9fQ3oAdfhE0s7gG23YNvtzow+9Dr2BFWwGNn29gUdRHVt7GAYUEJR7/cuzuFPL9fCVukTKf5f2oHJQnNX6zPExugEwhX1HvUzG9rT7Pt+xE/XAA+riULmyg5Ef4uSgXAymUzdQIcnCHW5h0LwZJLneP4+ZYLHTXJwyvVaAZIhJJHGDtALxQV8GfkDbYItaaCMBta+TRWUO51MhgeBH24PVqrA/7QWMGbYgW6WGkCRvKmpPqy1E8wvqfdEz8Y0dRK4AcrFwhlYcXRI16ga0skhigrYQYy6kezArJ001EVxmpmdh9wzORL8at9BBaW7tRrSMFUg3vwy/kCatXClAW6M8q3Q1Dww3fAUUUEeH1Cppyn3KxxTMs/rCZUYKmnuT7tnflk3ItOyeyaPTNGjwlogm8BaKChPxPm+i9yJtEM60kpXKsAPNaguXQtC2M3mrp1+aynSc9txwzBsdscjM/jo+Mtu3XVb9WaHykY0SU93Pc/b7fSinabj2Ee0h7LbdOx942Dm9pbjHMBgcOfERueaxIYfmLTQTRg63mSAVGvVG0k3NJC3cqQqNCAHJmX8NcuygXnpYmaMSWbz/NNw3BuZ2FluA6aNPJ9nkTCvrFE79Rp5Y4aPGTVG+VP2YjYOaTcSUN0lrREdfo1Lw7eiNB8O8zSSZVRerQTi6n3jk0160y7Lmunba0fUDZf7B/+MpY/y13h1I2Pr7e/lO5WPm9AcGohHDze+s7axvhHd1S739aHd2Tdh1m+eEe/eihgKIMJtPn32nRfPXry3pPUzRLgrKEOLL18ASPP/TswWP8154dedve74KZAjk1dvUMz7jbj0dlfQ6fLlAcMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwDMMwzD/jP9BSCATupYCHAAAAAElFTkSuQmCC">-->
     <form action="/" method="POST" enctype="multipart/form-data"> {% csrf_token %}
       {% if message %}
       <h3><a style="color: red">{{message}}</a></h3>
@@ -258,38 +285,6 @@
           class="formbold-form-input formbold-form-file"
         />
       </div>
-
-<!--      <div class="formbold-checkbox-wrapper">-->
-<!--        <label for="supportCheckbox" class="formbold-checkbox-label">-->
-<!--          <div class="formbold-relative">-->
-<!--            <input-->
-<!--              type="checkbox"-->
-<!--              id="supportCheckbox"-->
-<!--              class="formbold-input-checkbox"-->
-<!--            />-->
-<!--            <div class="formbold-checkbox-inner">-->
-<!--              <span class="formbold-opacity-0">-->
-<!--                <svg-->
-<!--                  width="11"-->
-<!--                  height="8"-->
-<!--                  viewBox="0 0 11 8"-->
-<!--                  class="formbold-stroke-current"-->
-<!--                  fill="none"-->
-<!--                  xmlns="http://www.w3.org/2000/svg"-->
-<!--                >-->
-<!--                  <path-->
-<!--                    d="M8.81868 0.688604L4.16688 5.4878L2.05598 3.29507C1.70417 2.92271 1.1569 2.96409 0.805082 3.29507C0.453266 3.66742 0.492357 4.24663 0.805082 4.61898L3.30689 7.18407C3.54143 7.43231 3.85416 7.55642 4.16688 7.55642C4.47961 7.55642 4.79233 7.43231 5.02688 7.18407L10.0696 2.05389C10.4214 1.68154 10.4214 1.10233 10.0696 0.729976C9.71776 0.357624 9.17049 0.357625 8.81868 0.688604Z"-->
-<!--                    fill="white"-->
-<!--                  />-->
-<!--                </svg>-->
-<!--              </span>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          I agree to the defined-->
-<!--          <a href="#"> terms, conditions, and policies</a>-->
-<!--        </label>-->
-<!--      </div>-->
-
       <button class="formbold-btn">Yuborish</button>
     </form>
   </div>
@@ -478,5 +473,58 @@
 
 
 </style>
-</body>
+								</div>
+							</div>
+<!--							<div class="col-md-5 d-flex align-items-stretch">-->
+<!--								<div class="info-wrap bg-primary w-100 p-lg-5 p-4">-->
+<!--									<h3 class="mb-4 mt-md-4">Contact us</h3>-->
+<!--				        	<div class="dbox w-100 d-flex align-items-start">-->
+<!--				        		<div class="icon d-flex align-items-center justify-content-center">-->
+<!--				        			<span class="fa fa-map-marker"></span>-->
+<!--				        		</div>-->
+<!--				        		<div class="text pl-3">-->
+<!--					            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>-->
+<!--					          </div>-->
+<!--				          </div>-->
+<!--				        	<div class="dbox w-100 d-flex align-items-center">-->
+<!--				        		<div class="icon d-flex align-items-center justify-content-center">-->
+<!--				        			<span class="fa fa-phone"></span>-->
+<!--				        		</div>-->
+<!--				        		<div class="text pl-3">-->
+<!--					            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>-->
+<!--					          </div>-->
+<!--				          </div>-->
+<!--				        	<div class="dbox w-100 d-flex align-items-center">-->
+<!--				        		<div class="icon d-flex align-items-center justify-content-center">-->
+<!--				        			<span class="fa fa-paper-plane"></span>-->
+<!--				        		</div>-->
+<!--				        		<div class="text pl-3">-->
+<!--					            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>-->
+<!--					          </div>-->
+<!--				          </div>-->
+<!--				        	<div class="dbox w-100 d-flex align-items-center">-->
+<!--				        		<div class="icon d-flex align-items-center justify-content-center">-->
+<!--				        			<span class="fa fa-globe"></span>-->
+<!--				        		</div>-->
+<!--				        		<div class="text pl-3">-->
+<!--					            <p><span>Website</span> <a href="#">yoursite.com</a></p>-->
+<!--					          </div>-->
+<!--				          </div>-->
+<!--			          </div>-->
+<!--							</div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/popper.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+
+	</body>
 </html>
+

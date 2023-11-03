@@ -18,7 +18,7 @@ def get_data():
 class ApplicationView(View):
     def get(self, request):
         data = get_data()
-        return render(request, 'index.html', data)
+        return render(request, 'index2.html', data)
 
     def post(self, request):
         forma = ApplicationForm(request.POST, request.FILES)
@@ -28,8 +28,11 @@ class ApplicationView(View):
         data = {"message": "Ma'lumotlaringiz to'liq emas !"}
         data2 = get_data()
         data.update(data2)
-        return render(request, "index.html", data)
+        return render(request, "index2.html", data)
 
 
 def success_view(request):
     return render(request, "success.html")
+
+def main_page_view(request):
+    return render(request, "index.html")

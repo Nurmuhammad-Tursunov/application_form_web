@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-p-pnkcw8mp*(zh5fuk!ted&*k(k6@4qw)s!8x5tz2$%)*xw0m!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -29,9 +29,6 @@ INSTALLED_APPS = [
 
     # local
     'mainapp',
-
-    # external
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -68,13 +65,23 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'applicationform$default',
+        'USER': 'applicationform',
+        'PASSWORD': '47*(7÷•¢\÷|7)*5*8*7Done7858',
+        'HOST':'applicationform.mysql.pythonanywhere-services.com',
+        'PORT':'3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -110,8 +117,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [BASE_DIR / "static"]
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+   "django.contrib.staticfiles.finders.AppDirectoriesFinder"
+]
 
 MEDIA_ROOT = BASE_DIR/'media/'
 MEDIA_URL = 'media/'
