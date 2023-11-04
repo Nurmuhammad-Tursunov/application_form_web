@@ -8,6 +8,8 @@ django = "*"
 djangorestframework = "*"
 drf-yasg = "*"
 pillow = "*"
+gspread = "*"
+oauth2client = "*"
 
 [dev-packages]
 
