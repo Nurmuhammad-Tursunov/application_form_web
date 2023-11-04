@@ -10,6 +10,10 @@ drf-yasg = "*"
 pillow = "*"
 gspread = "*"
 oauth2client = "*"
+twilio = "*"
+pip = "*"
+install = "*"
+py3-infobip = "*"
 
 [dev-packages]
 

@@ -4,6 +4,7 @@ from .forms import ApplicationForm
 from .models import Region, Degree, Family, Position, ComputerScience, Application
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from twilio.rest import Client
 
 
 key = {
@@ -31,6 +32,7 @@ file = gspread.authorize(creds)
 
 workbook = file.open("ApplicationForm")
 arizalar_sheet = workbook.worksheet("Arizalar")
+
 
 def get_data():
     data = {
@@ -79,6 +81,22 @@ class ApplicationView(View):
                     f"https://applicationform.pythonanywhere.com{application.photo.url}"
                 ]
             ])
+
+            client = Client("AC5ae6814d7179967d4180648505607d9b", "5c7e866617032a235636f54ccbff4a19")
+            msg = f"Ariza qoldirildi\n\n" \
+                  f"F.I.Sh - {application.first_name} {application.last_name}\n\n" \
+                  f"Tel. - {application.phone_number}\n\n" \
+                  f"Viloyat. - {application.region}\n\n" \
+                  f"Havola - https://applicationform.pythonanywhere.com/admin/"
+            try:
+                client.messages.create(
+                    body=msg,
+                    from_="+15097745886",
+                    to=f"+998880729933"
+                )
+            except:
+                pass
+
             return redirect("/done/")
         data = {"message": "Ma'lumotlaringiz to'liq emas !"}
         data2 = get_data()
