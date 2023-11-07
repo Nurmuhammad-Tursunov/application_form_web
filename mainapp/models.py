@@ -9,6 +9,7 @@ class Region(models.Model):
 
 class Position(models.Model):
     name = models.CharField(max_length=255)
+    deleted = models.BooleanField(default=False)
     objects = models.Manager()
     def __str__(self): return self.name
 
@@ -36,17 +37,17 @@ class Application(models.Model):
     city = models.CharField(max_length=255)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    father_name = models.CharField(max_length=255, null=True, blank=True)
+    # father_name = models.CharField(max_length=255, null=True, blank=True)
     phone_number = models.CharField(max_length=255)
-    phone_number2 = models.CharField(max_length=255, null=True, blank=True)
+    # phone_number2 = models.CharField(max_length=255, null=True, blank=True)
     date_of_birth = models.DateField()
     appeal = models.CharField(max_length=255, null=True, blank=True)
     position = models.ForeignKey(Position, on_delete=models.CASCADE, related_name="applications_by_position")
-    degree = models.ForeignKey(Degree, on_delete=models.CASCADE, related_name="applications_by_degree")
-    university = models.CharField(max_length=255, null=True, blank=True)
+    # degree = models.ForeignKey(Degree, on_delete=models.CASCADE, related_name="applications_by_degree")
+    # university = models.CharField(max_length=255, null=True, blank=True)
     family = models.ForeignKey(Family, on_delete=models.CASCADE, null=True, related_name="applications_by_family")
     address = models.CharField(max_length=500)
-    languages = models.CharField(max_length=255)
+    # languages = models.CharField(max_length=255)
     last_work = models.CharField(max_length=255)
     last_position = models.CharField(max_length=255)
     work_time = models.CharField(max_length=255)

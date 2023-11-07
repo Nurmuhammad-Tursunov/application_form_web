@@ -32,14 +32,24 @@ file = gspread.authorize(creds)
 
 workbook = file.open("ApplicationForm")
 arizalar_sheet = workbook.worksheet("Arizalar")
+elon_lavozimlari_sheet = workbook.worksheet("elon_lavozimlari")
 
 
 def get_data():
+    elon_lavozimlari_sheet_data = elon_lavozimlari_sheet.get_values()[1:]
+    Position.objects.filter(deleted=False).update(deleted=True)
+    for position in elon_lavozimlari_sheet_data:
+        if not Position.objects.filter(name=position[0]).exists():
+            Position.objects.create(
+                name=position[0]
+            )
+        elif Position.objects.filter(name=position[0]).exists():
+            Position.objects.filter(name=position[0]).update(deleted=False)
     data = {
         "regions": Region.objects.all(),
         "degrees": Degree.objects.all(),
         "family": Family.objects.all(),
-        "positions": Position.objects.all(),
+        "positions": Position.objects.filter(deleted=False),
         "computer_science": ComputerScience.objects.all(),
     }
     return data
@@ -52,47 +62,46 @@ class ApplicationView(View):
 
     def post(self, request):
         forma = ApplicationForm(request.POST, request.FILES)
+        print(f"{forma.errors=}")
         if forma.is_valid():
             forma.save()
             application = Application.objects.all().last()
             data = arizalar_sheet.get_values()
             sanoq = len(data) + 1
-            arizalar_sheet.update(f"A{sanoq}:T{sanoq}", [
+            arizalar_sheet.update(f"A{sanoq}:Q{sanoq}", [
                 [
                     sanoq - 1,
-                    f"{application.first_name} {application.last_name} {application.father_name if application.father_name is not None else '...'}",
+                    f"{application.last_name} {application.first_name}",
                     f"{application.phone_number}",
-                    f"{application.phone_number2 if application.phone_number2 is not None else '...'}",
                     f"{application.region}",
                     f"{application.city}",
                     f"{application.date_of_birth}",
                     f"{application.appeal if application.appeal is not None else '...'}",
                     f"{application.position}",
-                    f"{application.degree}",
-                    f"{application.university if application.university is not None else '...'}",
                     f"{application.family}",
                     f"{application.address}",
-                    f"{application.languages}",
                     f"{application.last_work}",
                     f"{application.last_position}",
                     f"{application.work_time}",
                     f"{application.computer_science}",
                     f"{application.about if application.about is not None else '...'}",
-                    f"https://applicationform.pythonanywhere.com{application.photo.url}"
+                    f"https://applicationform.pythonanywhere.com{application.photo.url}",
+                    f"{str(application.date_time)[:19]}"
                 ]
             ])
 
             client = Client("AC5ae6814d7179967d4180648505607d9b", "5c7e866617032a235636f54ccbff4a19")
             msg = f"Ariza qoldirildi\n\n" \
-                  f"F.I.Sh - {application.first_name} {application.last_name}\n\n" \
-                  f"Tel. - {application.phone_number}\n\n" \
-                  f"Viloyat. - {application.region}\n\n" \
-                  f"Havola - https://applicationform.pythonanywhere.com/admin/"
+                  f"F.I.Sh - {application.first_name} {application.last_name}\n" \
+                  f"Tel. - {application.phone_number}\n" \
+                  f"Viloyat - {application.region}\n\n" \
+                  f"Havola - https://shorturl.at/pY189"
             try:
                 client.messages.create(
                     body=msg,
                     from_="+15097745886",
-                    to=f"+998880729933"
+                    to="+998932700500"
+                    # to="+998939722023"
                 )
             except:
                 pass
@@ -106,6 +115,7 @@ class ApplicationView(View):
 
 def success_view(request):
     return render(request, "success.html")
+
 
 def main_page_view(request):
     return render(request, "index.html")

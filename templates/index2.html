@@ -61,6 +61,14 @@
         <label for="first_name" class="formbold-form-label"> F.I.Sh<a style="color: red">*</a></label>
 
         <div>
+            <input
+            type="text"
+            name="last_name"
+            id="last_name"
+            placeholder="Familiya*"
+            class="formbold-form-input"
+          />
+
           <input
             type="text"
             name="first_name"
@@ -69,20 +77,13 @@
             class="formbold-form-input"
           />
 
-          <input
-            type="text"
-            name="last_name"
-            id="last_name"
-            placeholder="Familiya*"
-            class="formbold-form-input"
-          />
-          <input
-            type="text"
-            name="father_name"
-            id="father_name"
-            placeholder="Otasining ismi*"
-            class="formbold-form-input"
-          />
+<!--          <input-->
+<!--            type="text"-->
+<!--            name="father_name"-->
+<!--            id="father_name"-->
+<!--            placeholder="Otasining ismi*"-->
+<!--            class="formbold-form-input"-->
+<!--          />-->
         </div>
       </div>
 
@@ -100,19 +101,19 @@
         </div>
 											</div>
 
-											<div class="col-md-12">
-												<label for="phone_number2" class="formbold-form-label"> Telefon raqam 2</label>
+<!--											<div class="col-md-12">-->
+<!--												<label for="phone_number2" class="formbold-form-label"> Telefon raqam 2</label>-->
 
-        <div>
-          <input
-            type="text"
-            name="phone_number2"
-            id="phone_number2"
-            placeholder="+998*********"
-            class="formbold-form-input"
-          />
-        </div>
-											</div>
+<!--        <div>-->
+<!--          <input-->
+<!--            type="text"-->
+<!--            name="phone_number2"-->
+<!--            id="phone_number2"-->
+<!--            placeholder="+998*********"-->
+<!--            class="formbold-form-input"-->
+<!--          />-->
+<!--        </div>-->
+<!--											</div>-->
 
 											<div class="col-md-12">
 												<label for="dob" class="formbold-form-label"> Tug'ulgan sana<a style="color: red">*</a> </label>
@@ -137,33 +138,33 @@
           {% endfor %}
         </select>
 											</div>
-											<div>
-											<div class="formbold-mb-3">
-        <label class="formbold-form-label"> Ma'lumotingiz qanday ?<a style="color: red">*</a> </label>
+<!--											<div>-->
+<!--											<div class="formbold-mb-3">-->
+<!--        <label class="formbold-form-label"> Ma'lumotingiz qanday ?<a style="color: red">*</a> </label>-->
 
-        <select class="formbold-form-input" name="degree" id="occupation2">
-          {% for degree in degrees %}
-          <option value="{{degree.id}}">{{degree.name}}</option>
-          {% endfor %}
-        </select>
-      </div>
-											</div>
+<!--        <select class="formbold-form-input" name="degree" id="occupation2">-->
+<!--          {% for degree in degrees %}-->
+<!--          <option value="{{degree.id}}">{{degree.name}}</option>-->
+<!--          {% endfor %}-->
+<!--        </select>-->
+<!--      </div>-->
+<!--											</div>-->
 
 <!--											<div class="col-md-12">-->
 <!--												<div class="form-group">-->
 <!--													<textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Message"></textarea>-->
 <!--												</div>-->
 <!--											</div>-->
-										<div class="formbold-mb-3">
-        <label for="address" class="formbold-form-label"> Qayerda o'qigansiz ? </label>
-        <input
-          type="text"
-          name="university"
-          id="university"
-          placeholder="Kollej | Universitet nomi"
-          class="formbold-form-input formbold-mb-3"
-        />
-      </div>
+<!--										<div class="formbold-mb-3">-->
+<!--        <label for="address" class="formbold-form-label"> Qayerda o'qigansiz ? </label>-->
+<!--        <input-->
+<!--          type="text"-->
+<!--          name="university"-->
+<!--          id="university"-->
+<!--          placeholder="Kollej | Universitet nomi"-->
+<!--          class="formbold-form-input formbold-mb-3"-->
+<!--        />-->
+<!--      </div>-->
 
       <div class="formbold-mb-3">
         <label class="formbold-form-label"> Oilaviy holatingiz qanday ?<a style="color: red">*</a> </label>
@@ -187,17 +188,17 @@
         />
       </div>
 
-      <div class="formbold-mb-3">
-        <label for="languages" class="formbold-form-label"> Qaysi tillarda gaplasha olasiz ?<a style="color: red">*</a> </label>
+<!--      <div class="formbold-mb-3">-->
+<!--        <label for="languages" class="formbold-form-label"> Qaysi tillarda gaplasha olasiz ?<a style="color: red">*</a> </label>-->
 
-        <input
-          type="text"
-          name="languages"
-          id="languages"
-          placeholder="Ingliz, Rus, Turk"
-          class="formbold-form-input formbold-mb-3"
-        />
-      </div>
+<!--        <input-->
+<!--          type="text"-->
+<!--          name="languages"-->
+<!--          id="languages"-->
+<!--          placeholder="Ingliz, Rus, Turk"-->
+<!--          class="formbold-form-input formbold-mb-3"-->
+<!--        />-->
+<!--      </div>-->
 
       <div class="formbold-mb-3 formbold-input-wrapp">
         <label for="last_work" class="formbold-form-label"> Oxirgi ishlagan joyingiz yoki hozir qayerda ishlayapsiz ?<a style="color: red">*</a></label>
@@ -337,11 +338,11 @@
 		</div>
 	</section>
 
-	<script src="{% static 'js/jquery.min.js' %}"></script>
-  <script src="{% static 'js/popper.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/jquery.validate.min.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
+	<!--<script src="{% static 'js/jquery.min.js' %}"></script>-->
+ <!-- <script src="{% static 'js/popper.js' %}"></script>-->
+ <!-- <script src="{% static 'js/bootstrap.min.js' %}"></script>-->
+ <!-- <script src="{% static 'js/jquery.validate.min.js' %}"></script>-->
+ <!-- <script src="{% static 'js/main.js' %}"></script>-->
 
 	</body>
 </html>
