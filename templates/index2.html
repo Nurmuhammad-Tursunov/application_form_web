@@ -18,7 +18,6 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<!--<h2 class="heading-section" style="color: blue">Leader KTM</h2>-->
                     <img src="{% static 'photo/LogoLeaderKTM.png' %}" style="width: 300px; height: 100px;" alt="Leader KTM Logo">
 				</div>
 			</div>
@@ -39,16 +38,8 @@
 				      		</div>
 									<form action="/" method="POST" enctype="multipart/form-data" id="contactForm" name="contactForm"> {% csrf_token %}
 										<div class="row">
-											<div class="col-md-12">
-												<label class="formbold-form-label"> Viloyat<a style="color: red">*</a> </label>
-													<select class="formbold-form-input" name="region" id="occupation">
-													  {% for region in regions %}
-													  <option value="{{region.id}}">{{region.name}}</option>
-													  {% endfor %}
-													</select>
-											</div>
 											<div class="col-md-6">
-												<label for="region_city" class="formbold-form-label"> Shahar<a style="color: red">*</a> </label>
+												<label for="region_city" class="formbold-form-label"> Shahar </label>
 													<input
 													  type="text"
 													  name="city"
@@ -57,7 +48,6 @@
 													  class="formbold-form-input"
 													/>
 											</div>
-<!--											<div class="formbold-input-wrapp formbold-mb-3">-->
 											<div>
         <label for="first_name" class="formbold-form-label"> F.I.Sh<a style="color: red">*</a></label>
 
@@ -77,51 +67,26 @@
             placeholder="Ism*"
             class="formbold-form-input"
           />
-
-<!--          <input-->
-<!--            type="text"-->
-<!--            name="father_name"-->
-<!--            id="father_name"-->
-<!--            placeholder="Otasining ismi*"-->
-<!--            class="formbold-form-input"-->
-<!--          />-->
         </div>
       </div>
-
-											<div class="col-md-12">
-												<label for="phone_number" class="formbold-form-label"> Telefon raqam<a style="color: red">*</a> </label>
-
+		<div class="col-md-12">
+			<label for="phone_number" class="formbold-form-label"> Telefon raqam <a style="color: red">*</a> </label>
         <div>
           <input
             type="text"
             name="phone_number"
             id="phone_number"
-            placeholder="+998*********"
+            placeholder="90 123 45 67"
             class="formbold-form-input"
           />
         </div>
-											</div>
+		</div>
 
-<!--											<div class="col-md-12">-->
-<!--												<label for="phone_number2" class="formbold-form-label"> Telefon raqam 2</label>-->
-
-<!--        <div>-->
-<!--          <input-->
-<!--            type="text"-->
-<!--            name="phone_number2"-->
-<!--            id="phone_number2"-->
-<!--            placeholder="+998*********"-->
-<!--            class="formbold-form-input"-->
-<!--          />-->
-<!--        </div>-->
-<!--											</div>-->
-
-											<div class="col-md-12">
-												<label for="dob" class="formbold-form-label"> Tug'ulgan sana<a style="color: red">*</a> </label>
+		<div class="col-md-12">
+			<label for="dob" class="formbold-form-label"> Tug'ulgan sana </label>
         <input type="date" name="date_of_birth" id="dob" class="formbold-form-input" />
-
-											</div>
-											<label for="appeal" class="formbold-form-label"> Qaysi e'lonimiz bo'yicha murojaat qilyapsiz ? </label>
+		</div>
+		<label for="appeal" class="formbold-form-label"> Qaysi korxona e'loni bo'yicha murojaat qilyapsiz ? </label>
         <input
           type="text"
           name="appeal"
@@ -129,57 +94,38 @@
           placeholder="..."
           class="formbold-form-input"
         />
-											</div>
-											<div>
-											<label class="formbold-form-label"> E'lonimiz bo'yicha qaysi lavozimda ishlamoqchisiz ?<a style="color: red">*</a> </label>
+        </div>
 
+        <div>
+        <label class="formbold-form-label"> Kirmoqchi bo'lgan lavozimni tanlang ? </label>
         <select class="formbold-form-input" name="position" id="occupation1">
-          {% for position in positions %}
-          <option value="{{position.id}}">{{position.name}}</option>
-          {% endfor %}
+<!--          {% for position in positions %}-->
+<!--          <option value="{{position.id}}">{{position.name}}</option>-->
+<!--          {% endfor %}-->
+			<option value="-">Tanlang</option>
+			<option value="Oliy">Sotuvchi</option>
+			<option value="O'rta maxsus">Operator</option>
+			<option value="O'rta maxsus">Haydovchi</option>
+			<option value="O'rta maxsus">Yuk tashuvchi (Грузчик)</option>
         </select>
-											</div>
-<!--											<div>-->
-<!--											<div class="formbold-mb-3">-->
-<!--        <label class="formbold-form-label"> Ma'lumotingiz qanday ?<a style="color: red">*</a> </label>-->
+        </div>
 
-<!--        <select class="formbold-form-input" name="degree" id="occupation2">-->
+		<div>
+		<div class="formbold-mb-3">
+        <label class="formbold-form-label"> Ma'lumotingiz qanday ? </label>
+        <select class="formbold-form-input" name="degree" id="occupation2">
 <!--          {% for degree in degrees %}-->
 <!--          <option value="{{degree.id}}">{{degree.name}}</option>-->
 <!--          {% endfor %}-->
-<!--        </select>-->
-<!--      </div>-->
-<!--											</div>-->
-
-<!--											<div class="col-md-12">-->
-<!--												<div class="form-group">-->
-<!--													<textarea name="message" class="form-control" id="message" cols="30" rows="7" placeholder="Message"></textarea>-->
-<!--												</div>-->
-<!--											</div>-->
-<!--										<div class="formbold-mb-3">-->
-<!--        <label for="address" class="formbold-form-label"> Qayerda o'qigansiz ? </label>-->
-<!--        <input-->
-<!--          type="text"-->
-<!--          name="university"-->
-<!--          id="university"-->
-<!--          placeholder="Kollej | Universitet nomi"-->
-<!--          class="formbold-form-input formbold-mb-3"-->
-<!--        />-->
-<!--      </div>-->
-
-      <div class="formbold-mb-3">
-        <label class="formbold-form-label"> Oilaviy holatingiz qanday ?<a style="color: red">*</a> </label>
-
-        <select class="formbold-form-input" name="family" id="occupation3">
-          {% for i in family %}
-          <option value="{{i.id}}">{{i.name}}</option>
-          {% endfor %}
+			<option value="-">Tanlang</option>
+			<option value="Oliy">Oliy</option>
+			<option value="O'rta maxsus">O'rta maxsus</option>
         </select>
       </div>
+		</div>
 
       <div class="formbold-mb-3">
-        <label for="address" class="formbold-form-label"> Yashash manzili<a style="color: red">*</a> </label>
-
+        <label for="address" class="formbold-form-label"> Yashash manzili </label>
         <input
           type="text"
           name="address"
@@ -189,92 +135,34 @@
         />
       </div>
 
-<!--      <div class="formbold-mb-3">-->
-<!--        <label for="languages" class="formbold-form-label"> Qaysi tillarda gaplasha olasiz ?<a style="color: red">*</a> </label>-->
+    <div>
+        <label class="formbold-form-label"> Rus tilini qanchalik bilasiz ? </label>
 
-<!--        <input-->
-<!--          type="text"-->
-<!--          name="languages"-->
-<!--          id="languages"-->
-<!--          placeholder="Ingliz, Rus, Turk"-->
-<!--          class="formbold-form-input formbold-mb-3"-->
-<!--        />-->
-<!--      </div>-->
-
-      <div class="formbold-mb-3 formbold-input-wrapp">
-        <label for="last_work" class="formbold-form-label"> Oxirgi ishlagan joyingiz yoki hozir qayerda ishlayapsiz ?<a style="color: red">*</a></label>
-
-        <div>
-          <input
-            type="text"
-            name="last_work"
-            id="last_work"
-            placeholder="Kompaniya"
-            class="formbold-form-input"
-          />
-        </div>
-      </div>
-
-
-      <div class="formbold-mb-3 formbold-input-wrapp">
-        <label for="last_position" class="formbold-form-label"> Qaysi lavozimda ishlagansiz ?<a style="color: red">*</a></label>
-
-        <div>
-          <input
-            type="text"
-            name="last_position"
-            id="last_position"
-            placeholder="Lavozim"
-            class="formbold-form-input"
-          />
-        </div>
-      </div>
-
-
-      <div class="formbold-mb-3 formbold-input-wrapp">
-        <label for="work_time" class="formbold-form-label"> Qancha muddat ishlagansiz ?<a style="color: red">*</a></label>
-
-        <div>
-          <input
-            type="text"
-            name="work_time"
-            id="work_time"
-            placeholder="3 oy | 1 yil | 2 yil"
-            class="formbold-form-input"
-          />
-        </div>
-      </div>
-
+        <select class="formbold-form-input" name="language_ru" id="occupation5">
+          <option value="-">Tanlang</option>
+          <option value="Bilmayman">Bilmayman</option>
+          <option value="Tushunaman">Tushunaman</option>
+          <option value="Bemalol gaplashaolaman">Bemalol gaplashaolaman</option>
+        </select>
+    </div>
 
       <div class="formbold-mb-3">
-        <label class="formbold-form-label"> Kompyuter savodxonligingiz ?<a style="color: red">*</a> </label>
-
+        <label class="formbold-form-label"> Kompyuterda ishlashni bilasizmi ? </label>
         <select class="formbold-form-input" name="computer_science" id="occupation4">
-          {% for j in computer_science %}
-          <option value="{{j.id}}">{{j.name}}</option>
-          {% endfor %}
+<!--          {% for j in computer_science %}-->
+<!--          <option value="{{j.id}}">{{j.name}}</option>-->
+<!--          {% endfor %}-->
+				  <option value="-">Tanlang</option>
+				  <option value="Ha">Ha</option>
+				  <option value="O'rtacha">O'rtacha</option>
+				  <option value="Yo'q">Yo'q</option>
+        </select>
         </select>
       </div>
 
-
-      <div class="formbold-mb-3 formbold-input-wrapp">
-        <label for="about" class="formbold-form-label"> O'zingiz haqingizda qisqacha ?</label>
-
-        <div>
-          <input
-            type="text"
-            name="about"
-            id="about"
-            placeholder="..."
-            class="formbold-form-input"
-          />
-        </div>
-      </div>
-
-
       <div class="formbold-mb-3">
         <label for="photo" class="formbold-form-label">
-          Rasmingizni yuklang<a style="color: red">*</a>
+          O'z rasmingizni yuklang (selfi yoki boshqa rasm)
         </label>
         <input
           type="file"
@@ -285,66 +173,20 @@
         />
       </div>
 
-											<div class="col-md-12">
-												<div class="form-group">
-													<input type="submit" value="Yuborish" class="btn btn-primary">
-													<div class="submitting"></div>
-												</div>
-											</div>
-<!--										</div>-->
-									</form>
-								</div>
-							</div>
-<!--							<div class="col-md-5 d-flex align-items-stretch">-->
-<!--								<div class="info-wrap bg-primary w-100 p-lg-5 p-4">-->
-<!--									<h3 class="mb-4 mt-md-4">Contact us</h3>-->
-<!--				        	<div class="dbox w-100 d-flex align-items-start">-->
-<!--				        		<div class="icon d-flex align-items-center justify-content-center">-->
-<!--				        			<span class="fa fa-map-marker"></span>-->
-<!--				        		</div>-->
-<!--				        		<div class="text pl-3">-->
-<!--					            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>-->
-<!--					          </div>-->
-<!--				          </div>-->
-<!--				        	<div class="dbox w-100 d-flex align-items-center">-->
-<!--				        		<div class="icon d-flex align-items-center justify-content-center">-->
-<!--				        			<span class="fa fa-phone"></span>-->
-<!--				        		</div>-->
-<!--				        		<div class="text pl-3">-->
-<!--					            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>-->
-<!--					          </div>-->
-<!--				          </div>-->
-<!--				        	<div class="dbox w-100 d-flex align-items-center">-->
-<!--				        		<div class="icon d-flex align-items-center justify-content-center">-->
-<!--				        			<span class="fa fa-paper-plane"></span>-->
-<!--				        		</div>-->
-<!--				        		<div class="text pl-3">-->
-<!--					            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>-->
-<!--					          </div>-->
-<!--				          </div>-->
-<!--				        	<div class="dbox w-100 d-flex align-items-center">-->
-<!--				        		<div class="icon d-flex align-items-center justify-content-center">-->
-<!--				        			<span class="fa fa-globe"></span>-->
-<!--				        		</div>-->
-<!--				        		<div class="text pl-3">-->
-<!--					            <p><span>Website</span> <a href="#">yoursite.com</a></p>-->
-<!--					          </div>-->
-<!--				          </div>-->
-<!--			          </div>-->
-<!--							</div>-->
+					<div class="col-md-12">
+						<div class="form-group">
+							<input type="submit" value="Yuborish" class="btn btn-primary">
+							<div class="submitting"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<!--<script src="{% static 'js/jquery.min.js' %}"></script>-->
- <!-- <script src="{% static 'js/popper.js' %}"></script>-->
- <!-- <script src="{% static 'js/bootstrap.min.js' %}"></script>-->
- <!-- <script src="{% static 'js/jquery.validate.min.js' %}"></script>-->
- <!-- <script src="{% static 'js/main.js' %}"></script>-->
-
 	</body>
 </html>
-

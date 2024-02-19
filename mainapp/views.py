@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render, redirect
 from django.views import View
 from .forms import ApplicationForm
@@ -62,62 +64,86 @@ class ApplicationView(View):
 
     def post(self, request):
         forma = ApplicationForm(request.POST, request.FILES)
+        # # forma = ApplicationForm()
+        #
+        # if forma.is_valid():
+        #     if Application.objects.filter(
+        #             first_name=forma.cleaned_data.get('first_name'),
+        #             last_name=forma.cleaned_data.get('last_name'),
+        #             phone_number=forma.cleaned_data.get('phone_number'),
+        #     ).exists():
+        #         data = {"message": "Siz avval ro'yxatdan o'tgansiz !"}
+        #         return redirect("/false/")
+        #     else:
+        #         # forma.save()
+        #         application = Application.objects.all().last()
+        #         data = arizalar_sheet.get_values()
+        #         sanoq = len(data) + 1
+        #         arizalar_sheet.update(f"A{sanoq}:M{sanoq}", [
+        #             [
+        #                 sanoq - 1,
+        #                 f"{application.last_name} {application.first_name}",
+        #                 f"{application.phone_number}",
+        #                 f"{application.city}" if application.city else "-",
+        #                 f"{application.date_of_birth}" if application.date_of_birth else "-",
+        #                 f"{application.appeal if application.appeal is not None else '-'}",
+        #                 f"{application.position}",
+        #                 f"{application.degree}",
+        #                 f"{application.address}" if application.address else "-",
+        #                 f"{application.language_ru}",
+        #                 f"{application.computer_science}",
+        #                 f"https://applicationform.pythonanywhere.com{application.photo.url}" if application.photo else "-",
+        #                 f"{str(application.date_time)[:19]}"
+        #             ]
+        #         ])
+        #
+        #         return redirect("/done/")
+        # else:
+        #     data = {"message": f"Ma'lumotlaringiz to'liq emas !{forma.errors}"}
+        # data2 = get_data()
+        # data.update(data2)
+        # return render(request, "index2.html", data)
 
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        phone_number = request.POST.get("phone_number")
+        city = request.POST.get("city")
+        date_of_birth = request.POST.get("date_of_birth")
+        appeal = request.POST.get("appeal")
+        position = request.POST.get("position")
+        degree = request.POST.get("degree")
+        address = request.POST.get("address")
+        language_ru = request.POST.get("language_ru")
+        computer_science = request.POST.get("computer_science")
+        photo = request.POST.get("photo")
+
+        # if last_name and first_name and phone_number:
         if forma.is_valid():
-            if Application.objects.filter(
-                    first_name=forma.cleaned_data.get('first_name'),
-                    last_name=forma.cleaned_data.get('last_name'),
-                    region=forma.cleaned_data.get('region'),
-                    phone_number=forma.cleaned_data.get('phone_number'),
-                    date_of_birth=forma.cleaned_data.get('date_of_birth'),
-            ).exists():
-                data = {"message": "Siz avval ro'yxatdan o'tgansiz !"}
-                return redirect("/false/")
-            else:
-                forma.save()
-                application = Application.objects.all().last()
-                data = arizalar_sheet.get_values()
-                sanoq = len(data) + 1
-                arizalar_sheet.update(f"A{sanoq}:Q{sanoq}", [
-                    [
-                        sanoq - 1,
-                        f"{application.last_name} {application.first_name}",
-                        f"{application.phone_number}",
-                        f"{application.region}",
-                        f"{application.city}",
-                        f"{application.date_of_birth}",
-                        f"{application.appeal if application.appeal is not None else '...'}",
-                        f"{application.position}",
-                        f"{application.family}",
-                        f"{application.address}",
-                        f"{application.last_work}",
-                        f"{application.last_position}",
-                        f"{application.work_time}",
-                        f"{application.computer_science}",
-                        f"{application.about if application.about is not None else '...'}",
-                        f"https://applicationform.pythonanywhere.com{application.photo.url}",
-                        f"{str(application.date_time)[:19]}"
-                    ]
-                ])
+            forma.save()
+            application = Application.objects.all().last()
+            data = arizalar_sheet.get_values()
+            sanoq = len(data) + 1
+            arizalar_sheet.update(f"A{sanoq}:M{sanoq}", [
+                [
+                    sanoq - 1,
+                    f"{last_name} {first_name}",
+                    f"{phone_number}",
+                    f"{city}" if city else "-",
+                    f"{date_of_birth}" if date_of_birth else "-",
+                    f"{appeal if appeal else '-'}",
+                    f"{position}",
+                    f"{degree}",
+                    f"{address}" if address else "-",
+                    f"{language_ru}",
+                    f"{computer_science}",
+                    f"https://applicationform.pythonanywhere.com{application.photo.url}" if application.photo else "-",
+                    f"{str(datetime.today())[:19]}"
+                ]
+            ])
 
-                client = Client("AC5ae6814d7179967d4180648505607d9b", "5c7e866617032a235636f54ccbff4a19")
-                msg = f"Ariza qoldirildi\n\n" \
-                      f"F.I.Sh - {application.first_name} {application.last_name}\n" \
-                      f"Tel. - {application.phone_number}\n" \
-                      f"Viloyat - {application.region}\n\n" \
-                      f"Havola - https://shorturl.at/pY189"
-                try:
-                    client.messages.create(
-                        body=msg,
-                        from_="+15097745886",
-                        to="+998932700500"
-                        # to="+998939722023"
-                    )
-                except:
-                    pass
-                return redirect("/done/")
+            return redirect("/done/")
         else:
-            data = {"message": "Ma'lumotlaringiz to'liq emas !"}
+            data = {"message": f"Ma'lumotlaringiz to'liq emas !{str(request.POST.get('photo'))}"}
         data2 = get_data()
         data.update(data2)
         return render(request, "index2.html", data)

@@ -1,37 +1,24 @@
 from django.forms import ModelForm
 from mainapp.models import Application
+from django import forms
 
 
 class ApplicationForm(ModelForm):
+    photo = forms.FileField(required=False)
+
     class Meta:
         model = Application
         fields = (
-            'region',
-            'city',
+            # 'city',
             'first_name',
             'last_name',
             'phone_number',
-            'date_of_birth',
-            'position',
+            # 'date_of_birth',
+            # 'position',
             # 'degree',
-            'family',
-            'address',
-            # 'languages',
-            'last_work',
-            'last_position',
-            'work_time',
-            'computer_science',
+            # 'address',
+            # 'language_ru',
+            # 'computer_science',
             'photo',
-
-            # 'father_name',
-            # 'phone_number2',
-            'appeal',
-            'about',
-                  )
-
-        # extra_kwargs = {
-        #     'father_name': {'required': False},
-        #     'phone_number2': {'required': False},
-        #     'appeal': {'required': False},
-        #     'about': {'required': False},
-        # }
+            # 'appeal',
+        )
